@@ -11,7 +11,7 @@ resource "aws_security_group_rule" "egress" {
   cidr_blocks       = ["0.0.0.0/0"]
   from_port         = 0
   to_port           = 65535
-  protocol          = "tcp"
+  protocol          = "all"
 }
 
 resource "aws_security_group_rule" "ingress_any" {
@@ -74,7 +74,7 @@ resource "aws_launch_template" "this" {
   }
 
   network_interfaces {
-    associate_public_ip_address = true
+    associate_public_ip_address = var.associate_public_ip_address
     security_groups             = [aws_security_group.this.id]
     delete_on_termination       = true
   }
