@@ -79,6 +79,11 @@ resource "aws_launch_template" "this" {
     delete_on_termination       = true
   }
 
+  metadata_options {
+    http_endpoint          = "enabled"
+    instance_metadata_tags = "enabled"
+  }
+
   tag_specifications {
     resource_type = "instance"
     tags          = local.common_tags
