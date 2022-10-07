@@ -21,4 +21,5 @@ ip route del default dev eth0
 curl --retry 10 http://www.example.com
 
 # reestablish connections
-systemctl restart amazon-ssm-agent.service
+# Currently disabling this. Need to improve ability to control this
+#systemctl restart amazon-ssm-agent.service
